@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+(shopt -p inherit_errexit &>/dev/null) && shopt -s inherit_errexit
+
+# one.bash:usage
+if [[ ${1:-} == -h ]] || [[ ${1:-} == --help ]]; then
+  cat <<EOF
+Usage: $ONE_SUB $(basename "$0")
+Desc: Open github homepage on current directory (must have .git folder)
+EOF
+  exit 0
+fi
+
+SCRIPT_DIR="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
+readonly SCRIPT_DIR
+
+# shellcheck source=../deps/lobash.bash
+source "$SCRIPT_DIR"/../deps/lobash.bash
+
+origin=$(git remote get-url origin)
+
+declare matched url
+matched=$(l.match "$origin" '^(.+)gitlab\.com[:/](.+)\.git$' 2)
+
+if [[ -n "$matched" ]]; then
+  url=https://gitlab.com/$matched
+  echo "open $url"
+  open "$url"
+  exit 0
+fi
+
+matched=$(l.match "$origin" '^(.+)github\.com[:/](.+)\.git$' 2)
+
+if [[ -n "$matched" ]]; then
+  url=https://github.com/$matched
+  echo "open $url"
+  open "$url"
+  exit 0
+fi

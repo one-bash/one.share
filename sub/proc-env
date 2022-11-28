@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+(shopt -p inherit_errexit &>/dev/null) && shopt -s inherit_errexit
+
+
+# one.bash:usage
+if (( $# == 0 )) || [[ $1 == -h ]] || [[ $1 == --help ]]; then
+  cat <<EOF
+Usage: $ONE_SUB $(basename "$0") <PID>
+Desc: Show environment variables in pid=<PID>
+EOF
+  exit 0
+fi
+
+readonly PID=$1
+
+linux() {
+  tr '\0' '\n' < "/proc/$PID/environ"
+}
+
+mac() {
+  ps -Eww -o command= "$PID" | less
+}
+
+system="$(uname -s)"
+case "${system}" in
+    Linux*)     linux;;
+    Darwin*)    mac;;
+    *)          echo "Unsupported system: ${system}" >&2 ;;
+esac

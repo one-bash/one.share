@@ -1,0 +1,6 @@
+{
+ :translate-shell "0.9.7"
+ :verbose false
+ :tl "zh"
+ :proxy "127.0.0.1:7890"
+}
