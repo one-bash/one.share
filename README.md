@@ -109,11 +109,20 @@ Git submodules required in one.bash.
 
 Just invoke `one dep install` to install.
 
+## Update
+
 `one dep update one.share` to update codes.
 
 ## Usage
 
-Read [one.bash documents][one.bash]
+```sh
+./recommended-modules
+
+# If ONE_BASH_IT_ENABLE=true
+one completion enable aliases.completion
+```
+
+Read [one.bash documents][one.bash] for usage.
 
 ## File Structure
 

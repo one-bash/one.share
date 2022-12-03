@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+(shopt -p inherit_errexit &>/dev/null) && shopt -s inherit_errexit
+
+one plugin enable completion editor gettext gpg grep history keymap lesspipe ls manbash manpage prompt shell
+
+one alias enable avoid-mistakes cd general
+
+echo "[All Done]"
