@@ -15,4 +15,12 @@ EOF
   exit 0
 fi
 
-echo "$MANPATH" | tr ":" "\n" | nl
+cmd() {
+  echo "$MANPATH" | tr ":" "\n" | nl -w 3
+}
+
+if which fzf &>/dev/null; then
+  cmd | fzf | awk '{printf "%s\n", $2}'
+else
+  cmd
+fi
