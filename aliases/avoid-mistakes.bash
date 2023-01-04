@@ -1,4 +1,3 @@
-cite about-plugin
 about-plugin 'Some more alias to avoid making mistakes'
 
 if one_l.has command trash; then

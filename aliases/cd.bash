@@ -1,4 +1,3 @@
-cite about-plugin
 about-plugin '".." aliases for cd'
 
 alias ..='cd ..'
