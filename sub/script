@@ -37,7 +37,7 @@ main() {
     exit $?
   fi
 
-  echo "bash" > "$path"
+  echo "#!/usr/bin/env bash" > "$path"
   chmod +x "$path"
   "$EDITOR" "$path"
 }
