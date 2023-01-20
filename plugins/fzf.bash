@@ -54,7 +54,10 @@ one_check_cmd fzf || return 1
 # spinner    Streaming input indicator
 # header     Header
 FZF_COLORS='--color=dark,hl:196,fg:-1,bg:#0B0B0C,preview-bg:#0B0B0C,hl:#D75F00,hl+:#D75F00,fg+:#689AFD,bg+:#181928,gutter:#0B0B0C,border:#6B6B6B,prompt:166,pointer:#689AFD,marker:160,info:252,spinner:237,header:#3BB1FF,query:#BEC0C4 --ansi --black'
+
 FZF_KEYBINDS="--bind=\
+alt-a:select-all,\
+ctrl-alt-a:deselect-all,\
 ctrl-t:toggle-all,\
 left:page-up,\
 right:page-down,\
@@ -62,6 +65,8 @@ ctrl-f:page-down,\
 ctrl-b:page-up,\
 ctrl-u:preview-half-page-up,\
 ctrl-d:preview-half-page-down,\
+ctrl-p:up+up,\
+ctrl-n:down+down,\
 alt-j:jump,\
 esc:deselect-all,\
 ?:toggle-preview\
@@ -76,8 +81,18 @@ FZF_ALT_C_PREVIEW="--preview 'tree -C {} | head -200'"
 FZF_SEARCH_MODE='--extended'
 FZF_SEARCH_RESULT='--sort --tiebreak=begin,length'
 FZF_INTERFACE="${FZF_KEYBINDS} --multi"
-FZF_LAYOUT="--height=50% --min-height=1 --inline-info --prompt='> ' --pointer='➤ ' --marker='+ ' --border=rounded "
-FZF_DISPLAY="${FZF_COLORS}"
+FZF_LAYOUT="
+  --separator=''
+  --height=50%
+  --min-height=1
+  --inline-info
+  --prompt='> '
+  --pointer='➤ '
+  --marker='+ '
+  --border=rounded
+  --layout=reverse
+"
+FZF_DISPLAY="--tabstop 2 ${FZF_COLORS}"
 FZF_SCRIPTING="--select-1 --exit-0"
 
 export FZF_DEFAULT_OPTS="${FZF_SEARCH_MODE} ${FZF_SEARCH_RESULT} ${FZF_INTERFACE} ${FZF_DISPLAY} ${FZF_LAYOUT} ${FZF_SCRIPTING}"
@@ -101,10 +116,10 @@ bind -m emacs-standard '"\et": " \C-e\C-u`__fzf_cd__`\e\C-e\er\C-m"'
 bind -m emacs-standard '"\ec": capitalize-word'
 
 # Auto-completion
-source "$FZF_SCRIPT_DIR/completion.bash" &>/dev/null
+source "$FZF_SCRIPT_DIR/completion.bash"
 
 ## support neo (nvim) bash-completion
 complete -F _fzf_file_completion -o default -o bashdefault neo
 complete -F _fzf_file_completion -o default -o bashdefault nvim
 
-unset -v FZF_DIR FZF_SCRIPT_DIR FZF_MANPATH FZF_BIN
+unset -v FZF_DIR FZF_MANPATH FZF_BIN
