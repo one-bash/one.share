@@ -14,6 +14,9 @@ export _ZL_NO_PROMPT_COMMAND=${_ZL_NO_PROMPT_COMMAND:-true}
 export _ZL_EXCLUDE_DIRS=(.git)
 # export _ZL_CD=cd
 export _ZL_MATCH_MODE=${_ZL_MATCH_MODE:-1}
+# Add path to database only if current working directory changed.
+# (By default, it adds path each time before display command prompt)
+export _ZL_ADD_ONCE=${_ZL_ADD_ONCE:-1}
 
 
 z_lua_init_options=(bash)
