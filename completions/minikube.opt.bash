@@ -1,0 +1,1 @@
+APPEND='minikube completion bash'
