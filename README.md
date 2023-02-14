@@ -2,7 +2,7 @@
 
 [one.bash][] + one.share = an awesome shell.
 
-one.share is the one.bash official repo, which provides common aliases, completions, plugins, configs, bin, sub for [one.bash][].
+The one.share is the one.bash official repo, which provides common aliases/completions/plugins/configs/bin/sub for [one.bash][].
 
 ## Features
 
@@ -105,6 +105,10 @@ Git submodules required in one.bash.
 - [a-bash-prompt][]: A Bash prompt written by pure Bash script.
 - [bash-preexec][]: Add `preexec_functions`, `precmd_functions` arrays, and `precmd`, `preexec` functions for bash.
 
+## Versions
+
+See [tags][]. The versions follows the rules of [SemVer 2.0.0](http://semver.org/).
+
 ## Installation
 
 Just invoke `one dep install` to install.
@@ -178,31 +182,11 @@ The completion files loaded in order:
 
 ## Suggestion, Bug Reporting, Contributing
 
-Any comments and suggestions are always welcome.
-
-**Before open an issue/discussion/PR, You should search related issues/discussions/PRs first** for avoiding to create duplicated links.
-
-- For new feature request, open a [discussion][], describe your demand concisely and clearly.
-- For new feature submit, open a [PR][], describe your demand and design concisely and clearly.
-- For bug report, open an [issue][], describe the bug concisely and clearly.
-- For bug fix, open a [PR][], concisely and clearly describe what you fixed.
-- For question and suggestion, open a [discussion][].
-- For anything not mentioned above, open a [discussion][].
-
-Do not post duplicated and useless contents like `+1`, `LOL`. React to comments with emoji instead of.
-
-你可以使用中文反馈意见。但希望你尽可能使用英文，不要中英文混杂，而是完全的英文语句。
-因为我们处于国际社区，英文更通用，方便外国人阅读理解你的意见。
-(Please communicate in English as much as possible)
-
-## Versions
-
-See [tags][].
-The versions follows the rules of [SemVer 2.0.0](http://semver.org/).
+**Before opening new Issue/Discussion/PR and posting any comments**, please read [Contributing Guidelines](https://gcg.adoyle.me/CONTRIBUTING).
 
 ## Copyright and License
 
-Copyright 2022 ADoyle (adoyle.h@gmail.com) Some Rights Reserved.
+Copyright 2022-2023 ADoyle (adoyle.h@gmail.com). Some Rights Reserved.
 The project is licensed under the **Apache License Version 2.0**.
 
 Read the [LICENSE][] file for the specific language governing permissions and limitations under the License.
@@ -214,10 +198,7 @@ Read the [NOTICE][] file distributed with this work for additional information r
 
 [LICENSE]: ./LICENSE
 [NOTICE]: ./NOTICE
-[tags]: https://github.com/one-bash/one.bash/tags
-[issue]: https://github.com/one-bash/one.bash/issues
-[discussion]: https://github.com/one-bash/one.bash/discussions
-[PR]: https://github.com/one-bash/one.bash/pulls
+[tags]: https://github.com/one-bash/one.share/tags
 
 <!-- links -->
 
