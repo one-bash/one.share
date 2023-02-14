@@ -101,7 +101,6 @@ export FZF_DEFAULT_COMMAND='ag -l --ignore-dir node_modules --ignore-dir .git -g
 export FZF_CTRL_T_OPTS="${FZF_DEFAULT_OPTS} --header='[Files]' ${FZF_CTRL_T_PREVIEW}"
 export FZF_CTRL_R_OPTS="${FZF_DEFAULT_OPTS} --header='[History]' --tiebreak=index ${FZF_CTRL_R_PREVIEW}"
 export FZF_ALT_C_OPTS="${FZF_DEFAULT_OPTS} --header='[Checkout Directory]' ${FZF_ALT_C_PREVIEW}"
-export FZF_COMPLETION_TRIGGER='**'
 
 if [[ -n "$TMUX" ]]; then
   export FZF_TMUX=1
@@ -110,16 +109,5 @@ fi
 
 # Key bindings
 source "$FZF_SCRIPT_DIR/key-bindings.bash"
-# bind __fzf_cd__ from ALT-C to ALT-T
-bind -m emacs-standard '"\et": " \C-e\C-u`__fzf_cd__`\e\C-e\er\C-m"'
-# bind ALT-C to capitalize-word (follow emacs bindings style)
-bind -m emacs-standard '"\ec": capitalize-word'
 
-# Auto-completion
-source "$FZF_SCRIPT_DIR/completion.bash"
-
-## support neo (nvim) bash-completion
-complete -F _fzf_file_completion -o default -o bashdefault neo
-complete -F _fzf_file_completion -o default -o bashdefault nvim
-
-unset -v FZF_DIR FZF_MANPATH FZF_BIN
+unset -v FZF_DIR FZF_MANPATH FZF_BIN FZF_SCRIPT_DIR
