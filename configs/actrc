@@ -4,4 +4,5 @@
 -P ubuntu-20.04=catthehacker/ubuntu:act-20.04
 -P ubuntu-18.04=catthehacker/ubuntu:act-18.04
 -P macos-12=-self-hosted
+-P macos-latest=-self-hosted
 --container-architecture linux/amd64
