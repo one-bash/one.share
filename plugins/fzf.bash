@@ -80,7 +80,7 @@ FZF_ALT_C_PREVIEW="--preview 'tree -C {} | head -200'"
 # ---- CATEGORY ----
 FZF_SEARCH_MODE='--extended'
 FZF_SEARCH_RESULT='--sort --tiebreak=begin,length'
-FZF_INTERFACE="${FZF_KEYBINDS} --multi"
+FZF_INTERFACE="${FZF_KEYBINDS} --multi --cycle"
 FZF_LAYOUT="
   --separator=''
   --height=50%
