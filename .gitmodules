@@ -10,10 +10,6 @@
 	path = deps/cheatsheets-community
 	url = https://github.com/cheat/cheatsheets.git
   shallow = true
-[submodule "deps/ble.sh"]
-	path = deps/ble.sh
-	url = https://github.com/akinomyoga/ble.sh.git
-  shallow = true
 [submodule "deps/bash-preexec"]
 	path = deps/bash-preexec
 	url = https://github.com/rcaloras/bash-preexec.git
