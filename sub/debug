@@ -11,7 +11,9 @@ if (( $# == 0 )) || [[ $1 == -h ]] || [[ $1 == --help ]]; then
   cat <<EOF
 Usage: $ONE_SUB $(basename "$0") [<FLAGS>] <script> [<args>]
 
-Desc: Debug the bash script
+Desc:
+  Enable "xtrace" shell option to debug the bash script.
+  Print each command it executes before outputting the result.
 
 Flags:
   -s <choice>  The style of xtrace prompt. [Default: 3]
@@ -19,7 +21,9 @@ Flags:
                2: Print <FILENAME>:<LINE>|E<EXIT_CODE>|P<PIPESTATUS>
                3: Print <FILEPATH>:<LINE>|E<EXIT_CODE>|P<PIPESTATUS>
 
-  -n           Not enable xtrace. User can use xtrace function for debug.
+  -n           Not enable xtrace for all lines. User can use "xtrace" function to debug lines. For example,
+                 xtrace echo 123
+               It will only print logs.
 
 Arguments:
   <script>  The file path of script
