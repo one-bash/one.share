@@ -83,7 +83,7 @@ FZF_SEARCH_RESULT='--sort --tiebreak=begin,length'
 FZF_INTERFACE="${FZF_KEYBINDS} --multi --cycle"
 FZF_LAYOUT="
   --separator=''
-  --height=50%
+  --height='~50%'
   --min-height=1
   --inline-info
   --prompt='> '
@@ -104,7 +104,6 @@ export FZF_ALT_C_OPTS="${FZF_DEFAULT_OPTS} --header='[Checkout Directory]' ${FZF
 
 if [[ -n "$TMUX" ]]; then
   export FZF_TMUX=1
-  export FZF_TMUX_HEIGHT=50%
 fi
 
 # Key bindings
