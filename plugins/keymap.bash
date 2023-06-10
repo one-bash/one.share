@@ -1,30 +1,5 @@
 about-plugin 'bind some keymaps for terminal'
 
-#### binding functions ####
-
-__a_keymap_trigger_sudo() {
-  local r
-
-  r=$(one_l.start_with "$READLINE_LINE" "sudo ")
-
-  local t
-  if [[ $r == true ]]; then
-    t="$(one_l.trim_start "$READLINE_LINE" 'sudo ')"
-  else
-    t="sudo ${READLINE_LINE}"
-  fi
-
-  READLINE_LINE="$t"
-  READLINE_POINT=$(( READLINE_POINT + ${#t} ))
-}
-
-##### key bindings #####
-
-# Alt+S
-# bind -x '"\es": "__a_keymap_trigger_sudo"'
-# bind -x '"\es": " \C-u \C-a\C-k`__a_keymap_trigger_sudo`\e\C-e"'
-# bind '"\es": "\C-asudo \C-e"'
-
 # Press Tab to completion in circle
 bind "TAB:menu-complete"
 
@@ -45,6 +20,10 @@ bind '"\e[3;3~": kill-word'
 
 bind '"\e[5C": forward-word'
 bind '"\e[5D": backward-word'
+
+# run shell command "clear" to clear screen
+bind -x '"\C-l": clear'
+bind -m emacs-standard '"\ec": capitalize-word'
 
 # Unbind default `alt-numkey` (digit-argument) in shell.
 # Refer to http://superuser.com/a/770902
