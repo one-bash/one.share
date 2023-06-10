@@ -16,10 +16,13 @@ elif [[ -d $HOME/.fzf/bin ]]; then
   FZF_BIN=$FZF_DIR/bin
   FZF_MANPATH=$FZF_DIR/man
   FZF_SCRIPT_DIR=$FZF_DIR/shell
-elif [[ $ONE_OS == Linux ]] && [[ -d /usr/share/doc/fzf ]]; then
+elif [[ -d /usr/share/doc/fzf ]]; then
   FZF_SCRIPT_DIR=/usr/share/doc/fzf/examples
+elif [[ -d /usr/share/fzf ]]; then
+  # pacman package
+  FZF_SCRIPT_DIR=/usr/share/fzf
 else
-  echo "Not found fzf directory. Please install fzf by git or homebrew, see https://github.com/junegunn/fzf#installation" >&2
+  echo "Not found fzf. Please install fzf, see https://github.com/junegunn/fzf#installation" >&2
   return 1
 fi
 
@@ -107,6 +110,6 @@ if [[ -n "$TMUX" ]]; then
 fi
 
 # Key bindings
-source "$FZF_SCRIPT_DIR/key-bindings.bash"
+test -f "$FZF_SCRIPT_DIR/key-bindings.bash" && source "$FZF_SCRIPT_DIR/key-bindings.bash"
 
 unset -v FZF_DIR FZF_MANPATH FZF_BIN FZF_SCRIPT_DIR

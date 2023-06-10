@@ -7,8 +7,11 @@ elif [[ -d /opt/homebrew/opt/fzf ]]; then
 elif [[ -d $HOME/.fzf/bin ]]; then
   FZF_DIR=$HOME/.fzf
   FZF_SCRIPT_DIR=$FZF_DIR/shell
-elif [[ $ONE_OS == Linux ]] && [[ -d /usr/share/doc/fzf ]]; then
+elif [[ -d /usr/share/doc/fzf ]]; then
   FZF_SCRIPT_DIR=/usr/share/doc/fzf/examples
+elif [[ -d /usr/share/fzf ]]; then
+  # pacman package
+  FZF_SCRIPT_DIR=/usr/share/fzf
 else
   echo "Not found fzf directory. Please install fzf by git or homebrew, see https://github.com/junegunn/fzf#installation" >&2
   return 1
