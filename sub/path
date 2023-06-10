@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 
-set -o errexit
-set -o nounset
-set -o pipefail
-set -o errtrace
+set -o errexit -o nounset -o pipefail -o errtrace
 (shopt -p inherit_errexit &>/dev/null) && shopt -s inherit_errexit
 
 # one.bash:usage
 if [[ ${1:-} == -h ]] || [[ ${1:-} == --help ]]; then
   cat <<EOF
-Usage: $ONE_SUB $(basename "$0")
+Usage: $ONE_SUB $(basename "$0") [OPTIONS]
 Desc: List environment variable PATH
+Options:
+  -a          Show all paths
 EOF
   exit 0
 fi
@@ -19,7 +18,9 @@ cmd() {
   echo "$PATH" | tr ":" "\n" | nl -w 3
 }
 
-if which fzf &>/dev/null; then
+if [[ ${1:-} == -a ]]; then
+  cmd
+elif which fzf &>/dev/null; then
   cmd | fzf | awk '{printf "%s\n", $2}'
 else
   cmd
