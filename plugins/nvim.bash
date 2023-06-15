@@ -9,3 +9,5 @@ export EDITOR="$VISUAL"
 
 alias edit="$VISUAL"
 alias pager="$VISUAL"
+
+one_l.has command vim || alias vim='nvim'
