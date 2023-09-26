@@ -8,4 +8,6 @@ bind -x '\"\\t\": fzf_bash_completion'
 _fzf_bash_completion_loading_msg() {
   printf '%b%s \\n' \"\\\${PS1@P}\" \"\\\${READLINE_LINE}\"  | tail -n 1
 }
+FZF_TAB_OPTS=''
+FZF_TAB_TMUX_OPTS='-h ~50% -w ~80%'
 EOF"
