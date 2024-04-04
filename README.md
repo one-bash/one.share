@@ -120,7 +120,7 @@ Just invoke `one dep install` to install.
 ## Usage
 
 ```sh
-./recommended-modules
+one repo enable-recommended
 
 # If ONE_BASH_IT_ENABLE=true
 one completion enable aliases.completion
@@ -186,7 +186,7 @@ The completion files loaded in order:
 
 ## Copyright and License
 
-Copyright 2022-2023 ADoyle (adoyle.h@gmail.com). Some Rights Reserved.
+Copyright 2022-2024 ADoyle (adoyle.h@gmail.com). Some Rights Reserved.
 The project is licensed under the **Apache License Version 2.0**.
 
 Read the [LICENSE][] file for the specific language governing permissions and limitations under the License.
@@ -204,7 +204,6 @@ Read the [NOTICE][] file distributed with this work for additional information r
 
 [one.bash]: https://github.com/one-bash/one.bash
 [dotbot]: https://github.com/anishathalye/dotbot/
-[bash-it]: https://github.com/Bash-it/bash-it
 [tmux]: https://github.com/tmux/tmux
 [fzf]: https://github.com/junegunn/fzf
 [font-DejaVu]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono
