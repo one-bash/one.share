@@ -5,6 +5,11 @@ if [[ ! -d /Applications/Xcode.app ]]; then
   return 1
 fi
 
+MACOSX_SDK="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"
+export LIBRARY_PATH="$MACOSX_SDK/usr/lib"
+export CPATH="$MACOSX_SDK/usr/include"
+unset -v MACOSX_SDK
+
 add_xcode_manpath() {
   local XCODE_MANPATH=$1
 
