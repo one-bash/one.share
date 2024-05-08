@@ -16,7 +16,7 @@ PROMPT_STYLE_TIME=bubble        # bubble or block
 PROMPT_STYLE_EXIT_STATUS=bubble # bubble or block
 PROMPT_STYLE_JOB=bubble         # bubble or block
 PROMPT_COLOR_TIME=GREEN
-PROMPT_FORMAT_TIME=' %s'
+PROMPT_FORMAT_TIME=' %s'
 
 # shellcheck source=../deps/a-bash-prompt/a.prompt.bash
 source "$script"
