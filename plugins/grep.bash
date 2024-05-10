@@ -3,6 +3,9 @@ about-plugin 'Enable grep color and modify grep settings'
 # colored grep
 if echo 'a' | grep --color=auto 'a' &> /dev/null; then
   alias grep='grep --color=auto'
+  alias egrep='egrep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias rgrep='rgrep --color=auto'
 fi
 
 # https://www.gnu.org/software/grep/manual/html_node/Environment-Variables.html
