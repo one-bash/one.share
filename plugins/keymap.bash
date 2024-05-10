@@ -1,3 +1,4 @@
+# ONE_LOAD_PRIORITY: 201
 about-plugin 'bind some keymaps for terminal'
 
 # Press Tab to completion in circle
