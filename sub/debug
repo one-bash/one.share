@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-set -o errexit
-set -o nounset
-set -o pipefail
-set -o errtrace
-(shopt -p inherit_errexit &>/dev/null) && shopt -s inherit_errexit
+set -o errexit -o nounset -o pipefail -o errtrace
+(shopt -p inherit_errexit &> /dev/null) && shopt -s inherit_errexit
 
 # one.bash:usage
-if (( $# == 0 )) || [[ $1 == -h ]] || [[ $1 == --help ]]; then
-  cat <<EOF
+if (($# == 0)) || [[ $1 == -h ]] || [[ $1 == --help ]]; then
+	# editorconfig-checker-disable
+	cat << EOF
 Usage: $ONE_SUB $(basename "$0") [<FLAGS>] <script> [<args>]
 
 Desc:
@@ -29,88 +27,89 @@ Arguments:
   <script>  The file path of script
   <args>    The arguments of script
 EOF
-  exit 0
+	# editorconfig-checker-enable
+	exit 0
 fi
 
 # one.bash:completion
 if [[ "${1:-}" == --complete ]]; then
-  if (( COMP_CWORD < 3 )); then
-    result=$(compgen -f -- "$2")
-    if [[ -d $result ]]; then
-      compgen -f -- "$result/"
-    else
-      echo "${result[@]}"
-    fi
-  fi
-  exit 0
+	if ((COMP_CWORD < 3)); then
+		result=$(compgen -f -- "$2")
+		if [[ -d $result ]]; then
+			compgen -f -- "$result/"
+		else
+			echo "${result[@]}"
+		fi
+	fi
+	exit 0
 fi
 
 get_flags() {
-  while (( $# > i )); do
-    if [[ ! ${!i} =~ ^- ]]; then
-      break
-    fi
+	while (($# > i)); do
+		if [[ ! ${!i} =~ ^- ]]; then
+			break
+		fi
 
-    local j=$((i+1))
+		local j=$((i + 1))
 
-    if [[ ${!i} == '-n' ]]; then
-      declare -g XTRACE=true
-    elif [[ ${!i} == '-s' ]]; then
-      declare -g STYLE=${!j}
-      i=$(( i + 1 ))
-    fi
+		if [[ ${!i} == '-n' ]]; then
+			declare -g XTRACE=true
+		elif [[ ${!i} == '-s' ]]; then
+			declare -g STYLE=${!j}
+			i=$((i + 1))
+		fi
 
-    i=$(( i + 1 ))
-  done
+		i=$((i + 1))
+	done
 }
 
 init() {
-  # shellcheck source=../deps/colors.bash
-  . "$ONE_DIR/deps/colors.bash"
+	# shellcheck source=../deps/colors.bash
+	. "$ONE_DIR/deps/colors.bash"
 
-  local tag
-  case ${STYLE:-3} in
-    1 )
-      # shellcheck disable=2016
-      tag='${LINENO}${FUNCNAME[0]:+|${FUNCNAME[0]}()}|E$?${PIPESTATUS:+|P${PIPESTATUS[*]}}'
-      ;;
-    2 )
-      # shellcheck disable=2016
-      tag='$(basename ${BASH_SOURCE[0]}):${LINENO}${FUNCNAME[0]:+|${FUNCNAME[0]}()}|E$?${PIPESTATUS:+|P${PIPESTATUS[*]}}'
-      ;;
-    3 )
-      # shellcheck disable=2016
-      tag='${BASH_SOURCE[0]}:${LINENO}${FUNCNAME[0]:+|${FUNCNAME[0]}()}|E$?${PIPESTATUS:+|P${PIPESTATUS[*]}}'
-      ;;
-    * )
-      echo "Invalid style choice: ${STYLE}" >&2
-      return 3
-      ;;
-  esac
+	local tag
+	case ${STYLE:-3} in
+		1)
+			# shellcheck disable=2016
+			tag='${LINENO}${FUNCNAME[0]:+|${FUNCNAME[0]}()}|E$?${PIPESTATUS:+|P${PIPESTATUS[*]}}'
+			;;
+		2)
+			# shellcheck disable=2016
+			tag='$(basename ${BASH_SOURCE[0]}):${LINENO}${FUNCNAME[0]:+|${FUNCNAME[0]}()}|E$?${PIPESTATUS:+|P${PIPESTATUS[*]}}'
+			;;
+		3)
+			# shellcheck disable=2016
+			tag='${BASH_SOURCE[0]}:${LINENO}${FUNCNAME[0]:+|${FUNCNAME[0]}()}|E$?${PIPESTATUS:+|P${PIPESTATUS[*]}}'
+			;;
+		*)
+			echo "Invalid style choice: ${STYLE}" >&2
+			return 3
+			;;
+	esac
 
-  PS4=$(printf '%b»%s %b' "${BLUE}" "$tag" "${RESET_ALL}")
+	PS4=$(printf '%b»%s %b' "${BLUE}" "$tag" "${RESET_ALL}")
 }
 
 main() {
-  local i=1
-  get_flags "$@"
+	local i=1
+	get_flags "$@"
 
-  init "${@:0:$i}"
+	init "${@:0:$i}"
 
-  if [[ -z ${XTRACE:-} ]]; then
-    # echo "bash -x ${*:$i}"
-    ONE_DIR=$ONE_DIR PS4=$PS4 bash -x "${@:$i}"
-  else
-    xtrace() {
-      set -o xtrace
-      "$@"
-      set +o xtrace
-    }
-    export -f xtrace
+	if [[ -z ${XTRACE:-} ]]; then
+		# echo "bash -x ${*:$i}"
+		ONE_DIR=$ONE_DIR PS4=$PS4 bash -x "${@:$i}"
+	else
+		xtrace() {
+			set -o xtrace
+			"$@"
+			set +o xtrace
+		}
+		export -f xtrace
 
-    # echo "bash ${*:$i}"
-    ONE_DIR=$ONE_DIR PS4=$PS4 bash "${@:$i}"
-  fi
+		# echo "bash ${*:$i}"
+		ONE_DIR=$ONE_DIR PS4=$PS4 bash "${@:$i}"
+	fi
 }
 
 main "$@"
