@@ -3,13 +3,14 @@
 
 # A minimal left prompt
 format = """
-[╭—](fg:grey) $directory\
+[╭](fg:grey) $directory\
 $fill\
 $status\
 $jobs\
 $time\
 \n\
-([│](fg:grey)  \
+([│](fg:grey) \
+$shell\
 $username\
 $hostname\
 $os\
@@ -79,10 +80,9 @@ $custom\
 $sudo\
 $battery\
 $container\
-$shell\
 $cmd_duration\
 \n)\
-[╰—](fg:grey) """
+[╰](fg:grey) """
 
 # Use custom format
 # format = """
@@ -175,7 +175,7 @@ format = '[󰔟$duration]($style) '
 disabled = false
 truncation_length = 0
 truncate_to_repo = false # Whether or not to truncate to the root of the git repo that you're currently in.
-format = "[$path]($style)[$read_only]($read_only_style) "
+format = "[$path]($style) ([$read_only]($read_only_style) )"
 home_symbol = '~'
 use_os_path_sep = true
 read_only = "󰌾"
@@ -183,20 +183,21 @@ read_only_style = "yellow"
 style = 'green'
 
 [git_branch]
-format = '[$symbol$branch(\($remote_name/$remote_branch\))]($style) '
+format = '[$symbol$branch(\($remote_name:$remote_branch\)) ]($style)'
 symbol = " "
 style = "purple"
-# Shows the remote tracking branch name, even if it is equal to the local branch name.
-always_show_remote = false
+always_show_remote = false # Shows the remote tracking branch name, even if it is equal to the local branch name.
+truncation_length = 15
+truncation_symbol = "…"
 only_attached = true
 
 [git_commit]
-format = '[\($hash$tag\)]($style) '
+format = '([ \($hash\) $tag]($style) )'
 commit_hash_length = 8
-style = "bold white"
+style = "purple"
 only_detached = true
-tag_disabled = true
-tag_symbol = "  "
+tag_disabled = false
+tag_symbol = " "
 
 # [git_state]
 # format = '[\($state( $progress_current of $progress_total)\)]($style) '
@@ -212,7 +213,7 @@ modified = "✱${count} "
 staged = "+${count} "
 renamed = "R${count} "
 deleted = "-${count} "
-format = '[$conflicted$stashed$deleted$renamed$staged$modified$untracked$ahead_behind]($style)'
+format = '([$conflicted$stashed$deleted$renamed$staged$modified$untracked$ahead_behind]($style) )'
 style = "purple"
 
 [time]
@@ -234,16 +235,16 @@ style_user = "green"
 style_root = "yellow bold"
 format = "[ $user]($style)"
 show_always = true
-detect_env_vars = ["SSH_CONNECTION", "SSH_CLIENT", "SSH_TTY"]
+detect_env_vars = ["SSH_CONNECTION", "SSH_CLIENT", "SSH_TTY", "SUDO_USER"]
 
 [hostname]
 disabled = false
 ssh_only = false
 format = "[@$hostname ]($style)"
 ssh_symbol = "󰣀 "
-detect_env_vars = ["SSH_CONNECTION", "SSH_CLIENT", "SSH_TTY"]
+detect_env_vars = ["SSH_CONNECTION", "SSH_CLIENT", "SSH_TTY", "SUDO_USER"]
 trim_at = "-"
-style = "dimmed white"
+style = "dimmed green"
 
 [os]
 disabled = true
@@ -252,6 +253,12 @@ style = "blue"
 
 [shell]
 disabled = true
+fish_indicator = '󰈺'
+bash_indicator = ''
+powershell_indicator = '_'
+unknown_indicator = '(mystery shell)'
+format = "[$indicator]($style) "
+style = 'cyan'
 
 [status]
 symbol = '😱'
