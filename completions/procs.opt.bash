@@ -1,1 +1,1 @@
-APPEND='procs --completion-out bash'
+APPEND='procs --gen-completion-out bash'
