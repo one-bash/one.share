@@ -1,3 +1,4 @@
+about-plugin 'keybase cli completion. https://keybase.io/'
 # source code: https://github.com/keybase/client/pull/10058#issuecomment-461193081
 
 _keybase_autocomplete() {

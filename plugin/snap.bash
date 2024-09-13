@@ -2,4 +2,4 @@
 about-plugin 'https://snapcraft.io/'
 
 # https://snapcraft.io/docs/getting-started#heading--running
-export PATH="$PATH:/snap/bin"
+one_PATH_append /snap/bin

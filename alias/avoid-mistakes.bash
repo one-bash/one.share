@@ -1,4 +1,4 @@
-about-plugin 'Some more alias to avoid making mistakes'
+about-plugin 'Some aliases to avoid making mistakes'
 
 if one_l.has command trash; then
 	# Safe "rm" command. Use trash if it exists. https://github.com/sindresorhus/trash

@@ -1,4 +1,4 @@
-about-plugin '".." aliases for cd'
+about-plugin 'Add ".." aliases for cd'
 
 alias ..='cd ..'
 alias ...='cd ../..'

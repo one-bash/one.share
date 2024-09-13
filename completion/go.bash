@@ -1,3 +1,6 @@
+about-plugin 'gocomplete for go command. https://github.com/posener/complete'
+one-bash:mod:deps gocomplete
+
 # gocomplete
 GOCOMPLETE_PATH=$(which gocomplete)
 

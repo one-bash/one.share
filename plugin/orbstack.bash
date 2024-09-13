@@ -1,4 +1,4 @@
-about-plugin 'https://docs.orbstack.dev/'
+about-plugin 'OrbStack command-line tools and integration. https://docs.orbstack.dev/'
 
-# Added by OrbStack: command-line tools and integration
-source ~/.orbstack/shell/init.bash 2>/dev/null || :
+# shellcheck disable=1090
+source ~/.orbstack/shell/init.bash 2>/dev/null

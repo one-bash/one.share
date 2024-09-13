@@ -1,8 +1,6 @@
 # ONE_LOAD_PRIORITY: 380
-about-plugin 'change node source code mirror and enable nvm'
+about-plugin 'enable nvm'
 
-export NODEJS_ORG_MIRROR="https://npm.taobao.org/mirrors/node"
-export NVM_NODEJS_ORG_MIRROR="$NODEJS_ORG_MIRROR"
 export NVM_DIR="$HOME/.nvm"
 
 if one_l.has command brew; then

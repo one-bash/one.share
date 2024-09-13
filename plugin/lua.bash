@@ -1,5 +1,3 @@
 about-plugin 'lua and luarocks'
 
-if [[ -d ~/.luarocks/bin ]]; then
-	PATH="$PATH:~/.luarocks/bin"
-fi
+one_PATH_append "$HOME/.luarocks/bin"

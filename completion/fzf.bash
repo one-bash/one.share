@@ -1,3 +1,5 @@
+about-plugin 'fzf completion. https://github.com/junegunn/fzf'
+
 if [[ -d /usr/local/opt/fzf ]]; then
 	FZF_DIR=/usr/local/opt/fzf
 	FZF_SCRIPT_DIR=$FZF_DIR/shell
