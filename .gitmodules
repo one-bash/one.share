@@ -1,4 +1,0 @@
-[submodule "deps/cheatsheets-community"]
-	path = deps/cheatsheets-community
-	url = https://github.com/cheat/cheatsheets.git
-  shallow = true
