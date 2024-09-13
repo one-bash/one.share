@@ -34,7 +34,10 @@ if ! man -w fzf &>/dev/null; then
 	export MANPATH="$MANPATH:$FZF_MANPATH"
 fi
 
-one_check_cmd fzf || return 1
+one_check_cmd fzf || {
+	echo "Not found command: fzf. You may install fzf in wrong way."
+	return 1
+}
 
 # ---- BASIC ----
 

@@ -7,5 +7,6 @@ AFTER_DOWNLOAD() {
 }
 
 APPEND() {
-	. $MOD_DATA_DIR/dist/share/blesh/ble.sh &>"$(tty)"
+	# shellcheck disable=1091
+	. "$ONE_DIR/data/plugin/ble/dist/share/blesh/ble.sh" &>"$(tty)"
 }

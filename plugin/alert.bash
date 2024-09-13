@@ -1,6 +1,5 @@
 about-plugin 'Add an alert function'
-
-one_check_cmd osascript || return 1
+one-bash:mod:deps osascript
 
 alert() {
 	local msg=$1

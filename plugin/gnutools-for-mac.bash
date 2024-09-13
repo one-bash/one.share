@@ -1,9 +1,10 @@
 # ONE_LOAD_PRIORITY: 370
 about-plugin 'Use gnu tools instead of default commands for MacOS. "brew install coreutils".'
+one-bash:mod:deps gdate gtimeout gtruncate
 
-if one_check_cmd gdate; then alias date='gdate'; else echo "Not found gdate" >&2; fi
-if one_check_cmd gtimeout; then alias timeout='gtimeout'; else echo "Not found gtimeout" >&2; fi
-if one_check_cmd gtruncate; then alias truncate='gtruncate'; else echo "Not found gtruncate" >&2; fi
+alias date='gdate'
+alias timeout='gtimeout'
+alias truncate='gtruncate'
 
 function set_gnu_sed() {
 	local gnu_sed_dir=$1
