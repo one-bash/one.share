@@ -1,1 +1,1 @@
-URL=https://raw.githubusercontent.com/adoyle-h/nvim-shell-completions/master/nvim-completion.bash
+SCRIPT==https://raw.githubusercontent.com/adoyle-h/nvim-shell-completions/master/nvim-completion.bash

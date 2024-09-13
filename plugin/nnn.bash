@@ -12,24 +12,24 @@ export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 
 # Copy from https://github.com/jarun/nnn/blob/master/misc/quitcd/quitcd.bash_sh_zsh
 n() {
-    # Block nesting of nnn in subshells
-    [ "${NNNLVL:-0}" -eq 0 ] || {
-        echo "nnn is already running"
-        return
-    }
+	# Block nesting of nnn in subshells
+	[ "${NNNLVL:-0}" -eq 0 ] || {
+		echo "nnn is already running"
+		return
+	}
 
-    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
-    # stty start undef
-    # stty stop undef
-    # stty lwrap undef
-    # stty lnext undef
+	# Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+	# stty start undef
+	# stty stop undef
+	# stty lwrap undef
+	# stty lnext undef
 
-    # The command builtin allows one to alias nnn to n, if desired, without
-    # making an infinitely recursive alias
-    command nnn "$@"
+	# The command builtin allows one to alias nnn to n, if desired, without
+	# making an infinitely recursive alias
+	command nnn "$@"
 
-    [ ! -f "$NNN_TMPFILE" ] || {
-        . "$NNN_TMPFILE"
-        rm -f "$NNN_TMPFILE" > /dev/null
-    }
+	[ ! -f "$NNN_TMPFILE" ] || {
+		. "$NNN_TMPFILE"
+		rm -f "$NNN_TMPFILE" >/dev/null
+	}
 }

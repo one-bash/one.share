@@ -2,36 +2,36 @@
 about-plugin 'Settings for fzf; https://github.com/junegunn/fzf'
 
 if [[ -d /usr/local/opt/fzf ]]; then
-  FZF_DIR=/usr/local/opt/fzf
-  FZF_BIN=$FZF_DIR/bin
-  FZF_MANPATH=$FZF_DIR/share/man
-  FZF_SCRIPT_DIR=$FZF_DIR/shell
+	FZF_DIR=/usr/local/opt/fzf
+	FZF_BIN=$FZF_DIR/bin
+	FZF_MANPATH=$FZF_DIR/share/man
+	FZF_SCRIPT_DIR=$FZF_DIR/shell
 elif [[ -d /opt/homebrew/opt/fzf ]]; then
-  FZF_DIR=/opt/homebrew/opt/fzf
-  FZF_BIN=$FZF_DIR/bin
-  FZF_MANPATH=$FZF_DIR/share/man
-  FZF_SCRIPT_DIR=$FZF_DIR/shell
+	FZF_DIR=/opt/homebrew/opt/fzf
+	FZF_BIN=$FZF_DIR/bin
+	FZF_MANPATH=$FZF_DIR/share/man
+	FZF_SCRIPT_DIR=$FZF_DIR/shell
 elif [[ -d $HOME/.fzf/bin ]]; then
-  FZF_DIR=$HOME/.fzf
-  FZF_BIN=$FZF_DIR/bin
-  FZF_MANPATH=$FZF_DIR/man
-  FZF_SCRIPT_DIR=$FZF_DIR/shell
+	FZF_DIR=$HOME/.fzf
+	FZF_BIN=$FZF_DIR/bin
+	FZF_MANPATH=$FZF_DIR/man
+	FZF_SCRIPT_DIR=$FZF_DIR/shell
 elif [[ -d /usr/share/doc/fzf ]]; then
-  FZF_SCRIPT_DIR=/usr/share/doc/fzf/examples
+	FZF_SCRIPT_DIR=/usr/share/doc/fzf/examples
 elif [[ -d /usr/share/fzf ]]; then
-  # pacman package
-  FZF_SCRIPT_DIR=/usr/share/fzf
+	# pacman package
+	FZF_SCRIPT_DIR=/usr/share/fzf
 else
-  echo "Not found fzf. Please install fzf, see https://github.com/junegunn/fzf#installation" >&2
-  return 1
+	echo "Not found fzf. Please install fzf, see https://github.com/junegunn/fzf#installation" >&2
+	return 1
 fi
 
 if one_l.has_not command fzf; then
-  export PATH="$PATH:$FZF_BIN"
+	export PATH="$PATH:$FZF_BIN"
 fi
 
 if ! man -w fzf &>/dev/null; then
-  export MANPATH="$MANPATH:$FZF_MANPATH"
+	export MANPATH="$MANPATH:$FZF_MANPATH"
 fi
 
 one_check_cmd fzf || return 1
@@ -106,7 +106,7 @@ export FZF_CTRL_R_OPTS="${FZF_DEFAULT_OPTS} --header='[History]' --tiebreak=inde
 export FZF_ALT_C_OPTS="${FZF_DEFAULT_OPTS} --header='[Checkout Directory]' ${FZF_ALT_C_PREVIEW}"
 
 if [[ -n "$TMUX" ]]; then
-  export FZF_TMUX=1
+	export FZF_TMUX=1
 fi
 
 # Key bindings

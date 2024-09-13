@@ -3,7 +3,6 @@
 
 about-plugin 'Make more sensible for shell completions'
 
-
 # If set to ‘on’, menu completion displays the common prefix of the list of
 # possible completions (which may be empty) before cycling through the list. The default is ‘off’.
 bind "set menu-complete-display-prefix on"
@@ -37,7 +36,6 @@ bind "set colored-stats on"
 # ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
 # Readline used by Bash 4.)
 bind "set skip-completed-text on"
-
 
 # Show extra file information when completing, like `ls -F` does
 # bind "set visible-stats on"

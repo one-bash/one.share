@@ -1,20 +1,16 @@
 #!/usr/bin/env bash
 
-set -o errexit
-set -o nounset
-set -o pipefail
-set -o errtrace
+set -o errexit -o nounset -o pipefail -o errtrace
 (shopt -p inherit_errexit &>/dev/null) && shopt -s inherit_errexit
 
-
 git config -f .gitmodules --get-regexp '^submodule\..*\.path$' |
-  while read -r path_key local_dir; do
-    if [[ -d "$local_dir" ]] && [[ -n "$(ls -A "$local_dir")" ]]; then
-      echo "[skip] $local_dir is downloaded and not empty"
-      continue;
-    fi
+	while read -r path_key local_dir; do
+		if [[ -d "$local_dir" ]] && [[ -n "$(ls -A "$local_dir")" ]]; then
+			echo "[skip] $local_dir is downloaded and not empty"
+			continue
+		fi
 
-    url_key=${path_key//.path/.url}
-    url=$(git config -f .gitmodules --get "$url_key")
-    git submodule add --depth 1 "$url" "$local_dir"
-  done
+		url_key=${path_key//.path/.url}
+		url=$(git config -f .gitmodules --get "$url_key")
+		git submodule add --depth 1 "$url" "$local_dir"
+	done

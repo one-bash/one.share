@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 set -o errexit -o nounset -o pipefail -o errtrace
-(shopt -p inherit_errexit &> /dev/null) && shopt -s inherit_errexit
+(shopt -p inherit_errexit &>/dev/null) && shopt -s inherit_errexit
 
 # one.bash:usage
 if (($# == 0)) || [[ $1 == -h ]] || [[ $1 == --help ]]; then
 	# editorconfig-checker-disable
-	cat << EOF
+	cat <<EOF
 Usage: $ONE_SUB $(basename "$0") [<FLAGS>] <script> [<args>]
 
 Desc:

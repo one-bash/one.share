@@ -7,24 +7,24 @@ set -o pipefail
 
 # one.bash:completion
 if [[ "${1:-}" == "--complete" ]]; then
-  if (( COMP_CWORD < 3 )); then
-    result=$(compgen -f -- "$2")
-    if [[ -d $result ]]; then
-      compgen -f -- "$result/"
-    else
-      echo "${result[@]}"
-    fi
-  fi
-  exit 0
+	if ((COMP_CWORD < 3)); then
+		result=$(compgen -f -- "$2")
+		if [[ -d $result ]]; then
+			compgen -f -- "$result/"
+		else
+			echo "${result[@]}"
+		fi
+	fi
+	exit 0
 fi
 
 # one.bash:usage
-if (( $# == 0 )) || [[ $1 == -h ]] || [[ $1 == --help ]]; then
-  cat <<EOF
+if (($# == 0)) || [[ $1 == -h ]] || [[ $1 == --help ]]; then
+	cat <<EOF
 Usage: $ONE_SUB $(basename "$0")
 Desc: Make file executable (chmod +x <file>)
 EOF
-  exit 0
+	exit 0
 fi
 
 chmod +x "$1"

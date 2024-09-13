@@ -1,9 +1,9 @@
 # ONE_LOAD_PRIORITY: 380
 about-plugin 'Some settings for MacOS'
 
-if [[ "$(uname -s)" != "Darwin" ]] ; then
-  echo "Current system is not MacOS." >&2
-  return 1
+if [[ "$(uname -s)" != "Darwin" ]]; then
+	echo "Current system is not MacOS." >&2
+	return 1
 fi
 
 # Set aliases -----------------------------------------------------------------

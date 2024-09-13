@@ -10,12 +10,12 @@ unset -v GVM_SCRIPT
 
 # GOPATH
 if [[ -n ${MY_GOPATH:-} ]]; then
-  [[ ! -e $MY_GOPATH ]] && mkdir -p "$MY_GOPATH"
+	[[ ! -e $MY_GOPATH ]] && mkdir -p "$MY_GOPATH"
 
-  export GOPATH=$MY_GOPATH
+	export GOPATH=$MY_GOPATH
 
-  # GVM set its GOPATH in PATH. $MY_GOPATH/bin should be before gvm.
-  PATH=$MY_GOPATH/bin:$PATH
+	# GVM set its GOPATH in PATH. $MY_GOPATH/bin should be before gvm.
+	PATH=$MY_GOPATH/bin:$PATH
 fi
 
 # export GOPROXY=https://goproxy.io,direct

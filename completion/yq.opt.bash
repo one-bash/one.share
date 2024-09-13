@@ -1,2 +1,2 @@
 ABOUT='https://mikefarah.gitbook.io/yq/commands/shell-completion'
-APPEND="yq shell-completion bash"
+RUN_AND_APPEND() { yq shell-completion bash; }

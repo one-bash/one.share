@@ -1,1 +1,3 @@
-APPEND='minikube completion bash'
+RUN_AND_APPEND() {
+	minikube completion bash
+}

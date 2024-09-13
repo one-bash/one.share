@@ -1,2 +1,2 @@
 ABOUT='https://github.com/direnv/direnv'
-APPEND='direnv hook bash'
+RUN_AND_APPEND() { direnv hook bash; }

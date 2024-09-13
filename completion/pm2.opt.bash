@@ -1,1 +1,1 @@
-APPEND='pm2 completion'
+RUN_AND_APPEND() { pm2 completion; }

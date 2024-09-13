@@ -2,10 +2,6 @@
 	path = deps/z.lua
 	url = https://github.com/skywind3000/z.lua.git
   shallow = true
-[submodule "deps/a-bash-prompt"]
-	path = deps/a-bash-prompt
-	url = https://github.com/adoyle-h/a-bash-prompt.git
-  shallow = true
 [submodule "deps/cheatsheets-community"]
 	path = deps/cheatsheets-community
 	url = https://github.com/cheat/cheatsheets.git

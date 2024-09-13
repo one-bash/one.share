@@ -1,2 +1,4 @@
 ABOUT='https://github.com/ajeetdsouza/zoxide'
-APPEND="zoxide init bash --cmd ${ZOXIDE_CMD:-z} --hook pwd"
+RUN_AND_APPEND() {
+	zoxide init bash --cmd "${ZOXIDE_CMD:-z}" --hook pwd
+}

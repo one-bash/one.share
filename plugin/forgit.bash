@@ -15,23 +15,23 @@ export FORGIT_FZF_DEFAULT_OPTS="
 "
 
 FORGIT_KEYBINDS=(
-  # Enter	        Confirm
-  # Tab	          Toggle mark and move up
-  # Shift - Tab	  Toggle mark and move down
-  # ?	            Toggle preview window
-  # Alt - W	      Toggle preview wrap
-  # Ctrl - S	    Toggle sort
-  # Ctrl - R	    Toggle selection
-  # Ctrl - Y	    Copy commit hash*
-  # Ctrl - K / P	Selection move up
-  # Ctrl - J / N	Selection move down
-  # Alt - K / P	  Preview move up
-  # Alt - J / N	  Preview move down
-  alt-p:toggle-preview
-  ctrl-f:half-page-down
-  ctrl-b:half-page-up
-  alt-f:preview-down
-  alt-b:preview-up
+	# Enter	        Confirm
+	# Tab	          Toggle mark and move up
+	# Shift - Tab	  Toggle mark and move down
+	# ?	            Toggle preview window
+	# Alt - W	      Toggle preview wrap
+	# Ctrl - S	    Toggle sort
+	# Ctrl - R	    Toggle selection
+	# Ctrl - Y	    Copy commit hash*
+	# Ctrl - K / P	Selection move up
+	# Ctrl - J / N	Selection move down
+	# Alt - K / P	  Preview move up
+	# Alt - J / N	  Preview move down
+	alt-p:toggle-preview
+	ctrl-f:half-page-down
+	ctrl-b:half-page-up
+	alt-f:preview-down
+	alt-b:preview-up
 )
 
 export FORGIT_LOG_FZF_OPTS=""
@@ -40,11 +40,11 @@ FORGIT_LOG_KEYBINDS=(
 )
 
 for keybind in "${FORGIT_LOG_KEYBINDS[@]}"; do
-  FORGIT_LOG_FZF_OPTS="$FORGIT_LOG_FZF_OPTS --bind='$keybind'"
+	FORGIT_LOG_FZF_OPTS="$FORGIT_LOG_FZF_OPTS --bind='$keybind'"
 done
 
 for keybind in "${FORGIT_KEYBINDS[@]}"; do
-  FORGIT_FZF_DEFAULT_OPTS="$FORGIT_FZF_DEFAULT_OPTS --bind='$keybind'"
+	FORGIT_FZF_DEFAULT_OPTS="$FORGIT_FZF_DEFAULT_OPTS --bind='$keybind'"
 done
 
 unset -v keybind FORGIT_KEYBINDS FORGIT_LOG_KEYBINDS

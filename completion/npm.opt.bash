@@ -1,1 +1,1 @@
-APPEND='npm completion'
+RUN_AND_APPEND() { npm completion; }

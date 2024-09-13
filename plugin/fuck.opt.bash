@@ -1,3 +1,3 @@
 ABOUT='The-fuck, corrects your previous console command. https://github.com/nvbn/thefuck'
-DEP_CMDS='thefuck'
-APPEND="thefuck --alias"
+DEPS='thefuck'
+RUN_AND_APPEND() { thefuck --alias; }

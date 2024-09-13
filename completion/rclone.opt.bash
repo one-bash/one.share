@@ -1,1 +1,1 @@
-APPEND='rclone completion bash'
+RUN_AND_APPEND() { rclone completion bash; }

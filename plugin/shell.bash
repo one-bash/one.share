@@ -61,7 +61,6 @@ IGNOREEOF=5
 
 #-------------------------------- set +o -------------------------------------#
 
-
 #---------------------------- Shell Variables --------------------------------#
 
 # Specifies how often (in seconds)  bash  checks  for  mail.   The

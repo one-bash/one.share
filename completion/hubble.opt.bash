@@ -1,1 +1,3 @@
-APPEND='hubble completion bash'
+RUN_AND_APPEND() {
+	hubble completion bash
+}

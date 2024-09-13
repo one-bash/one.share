@@ -1,1 +1,3 @@
-APPEND='helm completion bash'
+RUN_AND_APPEND() {
+	helm completion bash
+}

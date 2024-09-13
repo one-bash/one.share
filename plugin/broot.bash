@@ -6,15 +6,15 @@ about-plugin 'https://github.com/Canop/broot'
 # It's needed because some shell commands, like `cd`,
 # have no useful effect if executed in a subshell.
 function br {
-    local cmd cmd_file code
-    cmd_file=$(mktemp)
-    if broot --outcmd "$cmd_file" "$@"; then
-        cmd=$(<"$cmd_file")
-        command rm -f "$cmd_file"
-        eval "$cmd"
-    else
-        code=$?
-        command rm -f "$cmd_file"
-        return "$code"
-    fi
+	local cmd cmd_file code
+	cmd_file=$(mktemp)
+	if broot --outcmd "$cmd_file" "$@"; then
+		cmd=$(<"$cmd_file")
+		command rm -f "$cmd_file"
+		eval "$cmd"
+	else
+		code=$?
+		command rm -f "$cmd_file"
+		return "$code"
+	fi
 }

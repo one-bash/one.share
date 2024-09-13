@@ -1,1 +1,1 @@
-APPEND='gulp --completion=bash'
+RUN_AND_APPEND() { gulp --completion=bash; }

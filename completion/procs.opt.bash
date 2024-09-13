@@ -1,1 +1,3 @@
-APPEND='procs --gen-completion-out bash'
+RUN_AND_APPEND() {
+	procs --gen-completion-out bash
+}

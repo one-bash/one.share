@@ -1,2 +1,2 @@
 ABOUT='https://github.com/Schniz/fnm'
-APPEND='fnm completions --shell bash'
+RUN_AND_APPEND() { fnm completions --shell bash; }

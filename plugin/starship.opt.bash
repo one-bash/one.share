@@ -1,2 +1,4 @@
 ABOUT='Awesome shell prompt. https://starship.rs/'
-APPEND="starship init bash"
+RUN_AND_APPEND() {
+	starship init bash
+}

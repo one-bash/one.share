@@ -19,7 +19,6 @@ linux() {
 }
 
 mac() {
-	# sudo launchctl procinfo "$PID" | awk '/environment vector = {/ {flag=1; next} /^}/ {flag=0} flag'
 	sudo launchctl procinfo "$PID" |
 		awk '/environment vector = {/ {flag=1; next} /^}/ {flag=0} flag' |
 		sed 's/^[[:space:]]*//'

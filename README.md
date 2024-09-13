@@ -37,20 +37,6 @@ The one.share is the one.bash official repo, which provides common aliases/compl
 
 ![preview.png](https://media.githubusercontent.com/media/adoyle-h/_imgs/master/github/dotfiles/preview.png)
 
-**The prompt line is implemented by [a-bash-prompt][]. See [./plugins/prompt.bash](./plugins/prompt.bash).**
-
-Responsive prompt. Press Enter to auto adjust with window width.
-
-![responsive-prompt.png](https://media.githubusercontent.com/media/adoyle-h/_imgs/master/github/a-bash-prompt/responsive-prompt.png)
-
-Show last command exit status
-
-![exit-status.png](https://media.githubusercontent.com/media/adoyle-h/_imgs/master/github/a-bash-prompt/exit-status.png)
-
-Highlight Backgound jobs:
-
-![jobs-labels.png](https://media.githubusercontent.com/media/adoyle-h/_imgs/master/github/a-bash-prompt/jobs-labels.png)
-
 Use sub commands:
 
 ![sub-commands.jpeg](https://media.githubusercontent.com/media/adoyle-h/_imgs/master/github/dotfiles/sub-commands.jpeg)
@@ -100,9 +86,6 @@ These dependencies are not required for the project. It will improve the experie
 
 Git submodules required in one.bash.
 
-- [dotbot][]: To create symbolic links and manage them by [config](./one.links.example.yaml).
-- [lobash](https://github.com/adoyle-h/lobash): A modern, safe, powerful utility/library for Bash script development.
-- [a-bash-prompt][]: A Bash prompt written by pure Bash script.
 - [bash-preexec][]: Add `preexec_functions`, `precmd_functions` arrays, and `precmd`, `preexec` functions for bash.
 
 ## Versions
@@ -132,17 +115,17 @@ Read [one.bash documents][one.bash] for usage.
 
 ```
 .
-├── aliases/                        # Available aliases
+├── alias/                        # Available aliases
 ├── bin/                            # Executables. The directory path is added to PATH by one.bash.
-├── completions/                    # Available completions
-├── configs/                        # dotfiles, configs
+├── completion/                    # Available completions
+├── config/                        # dotfiles, configs
 ├── deps/                           # the dependencies for modules
 │   ├── a-bash-prompt/              # https://github.com/adoyle-h/a-bash-prompt
 │   ├── bash-preexec/               # https://github.com/rcaloras/bash-preexec
 │   ├── cheatsheets-community/      # https://github.com/cheat/cheat
 │   └── z.lua/                      # https://github.com/skywind3000/z.lua
 ├── docs/                           # The documents of this project
-├── plugins/                        # Available plugins
+├── plugin/                        # Available plugins
 │   ├── completions.bash            # Enable general completions and tab complete keymap
 │   ├── preexec.bash                # Enable bash-preexec
 │   └── prompt.bash                 # Enable a-bash-prompt

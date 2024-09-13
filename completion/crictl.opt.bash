@@ -1,1 +1,3 @@
-APPEND='crictl completion bash'
+RUN_AND_APPEND() {
+	crictl completion bash
+}

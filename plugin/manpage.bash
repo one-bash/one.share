@@ -1,7 +1,7 @@
 about-plugin 'Make manpage colored'
 
 if one_l.has command nvim; then
-  export MANPAGER='nvim +Man!'
+	export MANPAGER='nvim +Man!'
 fi
 
 # https://unix.stackexchange.com/questions/108699/documentation-on-less-termcap-variables

@@ -1,1 +1,3 @@
-APPEND='kubebuilder completion bash'
+RUN_AND_APPEND() {
+	kubebuilder completion bash
+}

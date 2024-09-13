@@ -1,2 +1,2 @@
-APPEND='orbctl completion bash'
-DEP_CMDS='orbctl'
+RUN_AND_APPEND() { orbctl completion bash; }
+DEPS='orbctl'

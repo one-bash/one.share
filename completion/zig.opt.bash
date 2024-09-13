@@ -1,1 +1,1 @@
-URL='https://raw.githubusercontent.com/ziglang/shell-completions/master/_zig.bash'
+SCRIPT=https://raw.githubusercontent.com/ziglang/shell-completions/master/_zig.bash
