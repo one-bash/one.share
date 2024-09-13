@@ -5,7 +5,7 @@ if one_l.has_not command fnm; then
 	echo 'Command "fnm" is not found. Ensure you have installed it. See https://github.com/Schniz/fnm'
 fi
 
-eval "$(fnm env --use-on-cd)"
+eval "$(fnm env --shell bash)"
 
 # Usage: fnm_upgrade 18.4
 # Desc: migrate the global npm packages from specific node version to current node
