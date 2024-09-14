@@ -1,1 +1,0 @@
-APPEND='helm completion bash'

@@ -1,1 +1,0 @@
-APPEND='gulp --completion=bash'

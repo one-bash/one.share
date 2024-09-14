@@ -37,7 +37,7 @@
 
     # cheat
     $XDG_CONFIG_HOME/cheat/conf.yml: $ONE_SHARE_DIR/configs/cheat.conf.yml
-    $XDG_CONFIG_HOME/cheat/sheets/community: $ONE_SHARE_DIR/deps/cheatsheets-community
+    # $XDG_CONFIG_HOME/cheat/sheets/community:
 
     # GnuPG
     ~/.gnupg/gpg.conf: $ONE_SHARE_DIR/configs/gpg.conf

@@ -1,1 +1,0 @@
-APPEND='hubble completion bash'

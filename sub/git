@@ -1,22 +1,20 @@
 #!/usr/bin/env bash
 
-set -o errexit
-set -o nounset
-set -o pipefail
+set -o errexit -o nounset -o pipefail -o errtrace
 (shopt -p inherit_errexit &>/dev/null) && shopt -s inherit_errexit
 
 # one.bash:usage:--one-help
 if [[ ${1:-} == --one-help ]]; then
-  cat <<EOF
+	cat <<EOF
 Usage: $ONE_SUB $(basename "$0") <ARGUMENTS>
 Desc: Run git in docker
 ARGUMENTS: git arguments
 EOF
-  exit 0
+	exit 0
 fi
 
 docker run -it --rm \
-  -v "$HOME"/.gitignore:/root/.gitignore \
-  -v "$HOME"/.ssh:/root/.ssh \
-  -v "$(pwd)":/git \
-  alpine/git "$@"
+	-v "$HOME"/.gitignore:/root/.gitignore \
+	-v "$HOME"/.ssh:/root/.ssh \
+	-v "$(pwd)":/git \
+	alpine/git "$@"

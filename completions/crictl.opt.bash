@@ -1,1 +1,0 @@
-APPEND='crictl completion bash'

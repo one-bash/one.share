@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
 
-set -o errexit
-set -o nounset
-set -o pipefail
-set -o errtrace
+set -o errexit -o nounset -o pipefail -o errtrace
 (shopt -p inherit_errexit &>/dev/null) && shopt -s inherit_errexit
 
 # one.bash:usage
 if [[ ${1:-} == -h ]] || [[ ${1:-} == --help ]]; then
-  cmd=$(basename "$0")
-  cat <<EOF
+	cmd=$(basename "$0")
+	cat <<EOF
 Usage: $ONE_SUB $cmd
        $ONE_SUB $cmd [<timestamp>]
 
@@ -17,11 +14,11 @@ Descriptions:
   If no arguments passed, print current datetime. (Format: %Y%m%d_%H%M%S)
   If timestamp provided, print datetime in local timezone.
 EOF
-  exit 0
+	exit 0
 fi
 
-if (( $# > 0 )); then
-  /bin/date -r $(( $1 / 1000 ))
+if (($# > 0)); then
+	/bin/date -r $(($1 / 1000))
 else
-  /bin/date +"%Y%m%d_%H%M%S"
+	/bin/date +"%Y%m%d_%H%M%S"
 fi

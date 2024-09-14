@@ -1,1 +1,0 @@
-APPEND='npm completion'

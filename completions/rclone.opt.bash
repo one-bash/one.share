@@ -1,1 +1,0 @@
-APPEND='rclone completion bash'
