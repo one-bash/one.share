@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -o errexit -o nounset -o pipefail -o errtrace
+(shopt -p inherit_errexit &>/dev/null) && shopt -s inherit_errexit
+
+proxy=dockerpull.com
+
+if [[ $# == 0 ]]; then
+  cat <<EOF
+Usage: $ONE_SUB docker-pull <image>
+Desc: pull image from docker hub via mirror
+EOF
+  exit 0
+fi
+
+image=$1
+
+if ! [[ "$image" =~ '/' ]]; then
+  image=library/$image
+fi
+
+docker pull "$proxy/$image"
+docker tag "$proxy/$image" "$image"
+docker rmi "$proxy/$image"
