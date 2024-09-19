@@ -9,25 +9,22 @@ The one.share is the one.bash official repo, which provides common aliases/compl
 - Collections of shell commands, which locates in [`bin/`](./bin/).
 - My best practices with shell (bash).
   - Responsive and pretty prompt. Refer to [Preview](#preview).
-  - Extended keyboard bindings. See [./plugins/keymap.bash](./plugins/keymap.bash).
-  - Flexible completion. Tab and Shift+Tab to make completion in circle. Compatible with [bash-completion][] (for bash 3.x) and [bash-completion2][bash-completion] (for bash 4.x). See [./plugins/completion.bash](./plugins/completion.bash)
-  - Extended Bash history settings. See [./plugins/history.bash](./plugins/history.bash).
-  - Extended Bash manpage. See [./plugins/manpage.bash](./plugins/manpage.bash).
-  - Patch shell for macos. See [./plugins/macos.bash](./plugins/macos.bash).
-  - Pretty ls command. See [./plugins/ls.bash](./plugins/ls.bash).
-  - Pretty less command. See [./plugins/lesspipe.bash](./plugins/lesspipe.bash).
-  - Safe rm command. See [./aliases/avoid-mistakes.bash](./aliases/avoid-mistakes.bash).
+  - Extended keyboard bindings. See [./plugin/keymap.bash](./plugin/keymap.bash).
+  - Flexible completion. Tab and Shift+Tab to make completion in circle. Compatible with [bash-completion][] (for bash 3.x) and [bash-completion2][bash-completion] (for bash 4.x). See [./plugin/completion.bash](./plugin/completion.bash)
+  - Extended Bash history settings. See [./plugin/history.bash](./plugin/history.bash).
+  - Extended Bash manpage. See [./plugin/manpage.bash](./plugin/manpage.bash).
+  - Pretty ls command. See [./plugin/ls.bash](./plugin/ls.bash).
+  - Pretty less command. See [./plugin/lesspipe.bash](./plugin/lesspipe.bash).
+  - Safe rm command. See [./alias/avoid-mistakes.bash](./alias/avoid-mistakes.bash).
 - Many third integrations
-  - [z.lua][]. See [./plugins/zl.bash](./plugins/zl.bash).
-  - [fzf][]. See [the configuration](https://github.com/adoyle-h/dotfiles/blob/master/bash-custom/fzf.plugin.bash) and [./plugins/fzf.bash](./plugins/fzf.bash).
-  - [taskbook](https://github.com/klaussinani/taskbook).
-  - [cheat](https://github.com/cheat/cheat). See [./plugins/cheat.bash](./plugins/cheat.bash)
-  - My best practices with [tmux][]. See [./plugins/tmux.bash](./plugins/tmux.bash) and [./configs/tmux.conf](./configs/tmux.conf).
-  - My best practices with git. See [./plugins/git.bash](./plugins/git.bash) and [./configs/gitconfig](./configs/gitconfig).
-  - My cheat sheets based on [chrisallenlane/cheat](https://github.com/chrisallenlane/cheat).
-  - Support [bash-preexec][]. It provides preexec and precmd functions for Bash just like Zsh. See [./plugins/preexec.bash](./plugins/preexec.bash).
-  - Support vscode. See [./plugins/vscode.bash](./plugins/vscode.bash).
-  - Support GNU utilities for mac. See [./plugins/gnutools-for-mac.bash](./plugins/gnutools-for-mac.bash) and [./plugins/sed-for-mac.bash](./plugins/sed-for-mac.bash).
+  - [z.lua][]. See [./plugin/zl.opt.bash](./plugin/zl.opt.bash).
+  - [fzf][]. See [the configuration](https://github.com/adoyle-h/dotfiles/blob/master/bash-custom/fzf.plugin.bash) and [./plugin/fzf.bash](./plugin/fzf.bash) nad [./plugin/fzf-tab.opt.bash](./plugin/fzf-tab.opt.bash).
+  - [taskbook](https://github.com/klaussinani/taskbook). See [./configs/taskbook.json](./configs/taskbook.json)
+  - [taskfile]. See [./completion/taskfile.opt.bash](./completion/taskfile.opt.bash)
+  - [cheat](https://github.com/cheat/cheat). See [./completion/cheat.opt.bash](./completion/cheat.opt.bash)
+  - My best practices with [tmux][]. See [./configs/tmux](./configs/tmux).
+  - Support [bash-preexec][]. It provides preexec and precmd functions for Bash just like Zsh. See [./plugin/preexec.opt.bash](./plugin/preexec.opt.bash).
+  - Support GNU utilities for mac. See [./plugin/gnutools-for-mac.bash](./plugin/gnutools-for-mac.bash).
   - Support programming language related like nvm, rust, gvm.
 
 ## Preview
@@ -65,28 +62,7 @@ Bubble Style and Block Style:
 - [git][]
 - [python][]: Make sure it available before installation. Python 2 and 3 are both supported.
 - perl 5+
-- gawk: required by [ble.sh][]
 - [Nerd Font](https://github.com/ryanoasis/nerd-fonts): I recommend [DejaVuSansMonoForPowerline Nerd Font][font-DejaVu].
-
-### Optional Dependencies
-
-These dependencies are not required for the project. It will improve the experience of terminal. Install them as your requirement.
-
-- [Color Scheme][]: I recommend [Deep][scheme-deep].
-- [ag](https://github.com/ggreer/the_silver_searcher)
-- [cheat](https://github.com/cheat/cheat)
-- [exa](https://github.com/ogham/exa)
-- [fzf][]
-- [git-prompt][]: If omitted, PS1 will not show git prompt.
-- [tmux][]: An awesome terminal multiplexer!
-- [trash](https://github.com/sindresorhus/trash-cli)
-- [z.lua][]
-
-### Git Submodules
-
-Git submodules required in one.bash.
-
-- [bash-preexec][]: Add `preexec_functions`, `precmd_functions` arrays, and `precmd`, `preexec` functions for bash.
 
 ## Versions
 
@@ -94,19 +70,18 @@ See [tags][]. The versions follows the rules of [SemVer 2.0.0](http://semver.org
 
 ## Installation
 
-Just invoke `one dep install` to install.
+`one repo add https://github.com/one-bash/one.share`
 
 ## Update
 
-`one dep update one.share` to update codes.
+`one repo update one.share` to update codes.
 
 ## Usage
 
 ```sh
-one repo enable-recommended
-
-# If ONE_BASH_IT_ENABLE=true
-one completion enable aliases.completion
+one c enable aliases.completion
+one p enable ls grep
+one a enable avoid-mistakes cd
 ```
 
 Read [one.bash documents][one.bash] for usage.
@@ -116,20 +91,12 @@ Read [one.bash documents][one.bash] for usage.
 ```
 .
 ├── alias/                        # Available aliases
-├── bin/                            # Executables. The directory path is added to PATH by one.bash.
-├── completion/                    # Available completions
-├── config/                        # dotfiles, configs
-├── deps/                           # the dependencies for modules
-│   ├── a-bash-prompt/              # https://github.com/adoyle-h/a-bash-prompt
-│   ├── bash-preexec/               # https://github.com/rcaloras/bash-preexec
-│   ├── cheatsheets-community/      # https://github.com/cheat/cheat
-│   └── z.lua/                      # https://github.com/skywind3000/z.lua
-├── docs/                           # The documents of this project
-├── plugin/                        # Available plugins
-│   ├── completions.bash            # Enable general completions and tab complete keymap
-│   ├── preexec.bash                # Enable bash-preexec
-│   └── prompt.bash                 # Enable a-bash-prompt
-└── sub/                            # The commands for ONE_SUB
+├── bin/                          # Executables. The directory path is added to PATH by one.bash.
+├── completion/                   # Available completions
+├── config/                       # dotfiles, configs
+├── docs/                         # The documents of this project
+├── plugin/                       # Available plugins
+└── sub/                          # The commands for ONE_SUB
 ```
 
 ## Notice
