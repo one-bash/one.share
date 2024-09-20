@@ -3,11 +3,13 @@
     link:
       # relink: true # If true, override the target file when it existed
       create: true
+      glob: true
 
 # NOTE: dotbot have no sudo permission
 - shell: []
 
 # ONE_SHARE_DIR is the filepath of repo https://github.com/one-bash/one.share
+# You must enable the repo one.share before invoking "one link"
 - link:
     # bash
     $XDG_CONFIG_HOME/blesh/init.sh: $ONE_SHARE_DIR/configs/blerc.bash
@@ -33,15 +35,9 @@
     $XDG_CONFIG_HOME/lazygit/config.yml: $ONE_SHARE_DIR/configs/lazygit.yaml
     $XDG_CONFIG_HOME/translate-shell/init.trans: $ONE_SHARE_DIR/configs/translate-shell.trans
     ~/.config/procs/config.toml: $ONE_SHARE_DIR/configs/procs.config.toml
-    # $XDG_CONFIG_HOME/clash/config.yaml: $ONE_SHARE_DIR/configs/clash.yaml
 
     # cheat
     $XDG_CONFIG_HOME/cheat/conf.yml: $ONE_SHARE_DIR/configs/cheat.conf.yml
-    # $XDG_CONFIG_HOME/cheat/sheets/community:
-
-    # GnuPG
-    ~/.gnupg/gpg.conf: $ONE_SHARE_DIR/configs/gpg.conf
-    ~/.gnupg/gpg-agent.conf: $ONE_SHARE_DIR/configs/gpg-agent.conf
 
     ## lint configs
     # Vim script Language Lint. https://github.com/Kuniwak/vint
