@@ -3,7 +3,8 @@ GITHUB_REPO='https://github.com/akinomyoga/ble.sh'
 DEPS='gawk'
 
 AFTER_DOWNLOAD() {
-	make -C "$MOD_DATA_DIR/git" install PREFIX="$MOD_DATA_DIR/dist"
+	cd git || return 32
+	make install PREFIX="../dist"
 }
 
 APPEND() {
